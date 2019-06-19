@@ -19,13 +19,15 @@ public class CommandExecutorImpl implements CommandExecutor {
         if (matchedCommands.size() == 1) {
             SubCommand matchedCommand = matchedCommands.get(0);
             matchedCommand.execute(sender, args);
-        } else {
-            SubCommand subCommand = commandManager.getCommands().get(args[0]);
+        } else if (sender.hasPermission("tamatool.help")) {
+            SubCommand subCommand = args.length > 0 ? commandManager.getCommands().get(args[0]) : null;
             if (subCommand != null) {
                 sender.sendMessage(subCommand.help());
             } else {
-                sender.sendMessage("Command not found.");
+                sender.sendMessage("usage: /tamatool sub_command [OPTION]...");
             }
+        } else {
+            sender.sendMessage("Command not found.");
         }
         return true;
     }

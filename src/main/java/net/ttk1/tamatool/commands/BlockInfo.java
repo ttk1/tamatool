@@ -22,7 +22,7 @@ public class BlockInfo extends AbstractCommand {
 
     @Override
     public String help() {
-        return "Nothing to display.";
+        return "usage: /tamatool blockinfo world_name x y z";
     }
 
     @Override
@@ -33,7 +33,7 @@ public class BlockInfo extends AbstractCommand {
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (sender.hasPermission(PERMISSION)) {
-            sender.sendMessage("piyopiyo");
+            sender.sendMessage("");
         } else {
             sender.sendMessage("You don't hove permission to perform this command.");
         }

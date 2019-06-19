@@ -24,7 +24,7 @@ public class Version extends AbstractCommand {
 
     @Override
     public String help() {
-        return "Nothing to display.";
+        return "usage: /tamatool version";
     }
 
     @Override

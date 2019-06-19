@@ -12,6 +12,8 @@ commands:
     aliases: [tt, tama]
 
 permissions:
+  tamatool.help:
+    default: op
   tamatool.version:
     default: op
   tamatool.blockinfo:
