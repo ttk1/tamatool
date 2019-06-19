@@ -1,0 +1,15 @@
+name: ${name}
+version: ${version}
+main: net.ttk1.tamatool.TamaTool
+author: tama@ttk1
+website: https://github.com/ttk1/tamatool
+
+commands:
+  tamatool:
+    description: Development support tool.
+    usage: /tamatool <subcommand>
+    aliases: tt
+
+permissions:
+  tamatool.version:
+    default: op
