@@ -6,9 +6,6 @@ import org.bukkit.command.CommandSender;
 
 import net.ttk1.tamatool.command.AbstractCommand;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Version extends AbstractCommand {
     private final String version;
 
