@@ -14,13 +14,18 @@ public class CommandExecutorImpl implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        List<SubCommand> matchedCommands = commandManager.getCommands()
-                .stream().filter(subCommand -> subCommand.match(args)).collect(Collectors.toList());
+        List<SubCommand> matchedCommands = commandManager.getCommands().values().stream()
+                .filter(subCommand -> subCommand.match(args)).collect(Collectors.toList());
         if (matchedCommands.size() == 1) {
             SubCommand matchedCommand = matchedCommands.get(0);
             matchedCommand.execute(sender, args);
         } else {
-            sender.sendMessage("Command not found.");
+            SubCommand subCommand = commandManager.getCommands().get(args[0]);
+            if (subCommand != null) {
+                sender.sendMessage(subCommand.help());
+            } else {
+                sender.sendMessage("Command not found.");
+            }
         }
         return true;
     }

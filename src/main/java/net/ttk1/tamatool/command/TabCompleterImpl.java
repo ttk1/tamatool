@@ -17,7 +17,7 @@ public class TabCompleterImpl implements TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         Set<String> candidates = new HashSet<>();
-        for (SubCommand subCommand: commandManager.getCommands()) {
+        for (SubCommand subCommand: commandManager.getCommands().values()) {
             candidates.addAll(subCommand.tabComplete(sender, args));
         }
         return new ArrayList<>(candidates);
