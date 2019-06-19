@@ -83,7 +83,13 @@
   <properties>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <java.version>12</java.version>
+    <plugin.description>${project.description}</plugin.description>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <plugin.version>${version}</plugin.version>
+    <plugin.website>https://github.com/ttk1/tamatool</plugin.website>
+    <plugin.main>net.ttk1.tamatool.TamaTool</plugin.main>
+    <plguin.author>tama@ttk1</plguin.author>
+    <plugin.name>${project.name}</plugin.name>
   </properties>
 </project>

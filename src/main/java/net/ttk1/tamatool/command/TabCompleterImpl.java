@@ -2,34 +2,29 @@ package net.ttk1.tamatool.command;
 
 import com.google.inject.Inject;
 
-import net.ttk1.tamatool.command.subcommand.SubCommand;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Set;
+import java.util.HashSet;
 
-public class TamaToolTabCompleter implements TabCompleter {
-    private SubCommandManager subCommandManager;
-
-    @Inject
-    private void setSubCommandManager(SubCommandManager subCommandManager) {
-        this.subCommandManager = subCommandManager;
-    }
+public class TabCompleterImpl implements TabCompleter {
+    private CommandManager commandManager;
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-        List<SubCommand> subCommands = subCommandManager.getSubCommands();
         Set<String> candidates = new HashSet<>();
-
-        for (SubCommand subCommand: subCommands) {
+        for (SubCommand subCommand: commandManager.getCommands()) {
             candidates.addAll(subCommand.tabComplete(sender, args));
         }
-
         return new ArrayList<>(candidates);
+    }
+
+    @Inject
+    private void setCommandManager(CommandManager commandManager) {
+        this.commandManager = commandManager;
     }
 }

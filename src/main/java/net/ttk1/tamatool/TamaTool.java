@@ -3,25 +3,19 @@ package net.ttk1.tamatool;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
+import net.ttk1.tamatool.commands.VersionCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.command.TabCompleter;
 
+import net.ttk1.tamatool.command.CommandManager;
+
 public class TamaTool extends JavaPlugin {
     private CommandExecutor commandExecutor;
     private TabCompleter tabCompleter;
-
-    @Inject
-    private void setCommandExecutor(CommandExecutor commandExecutor) {
-        this.commandExecutor = commandExecutor;
-    }
-
-    @Inject
-    private void setTabCompleter(TabCompleter tabCompleter) {
-        this.tabCompleter = tabCompleter;
-    }
+    private CommandManager commandManager;
 
     @Override
     public void onEnable() {
@@ -36,6 +30,7 @@ public class TamaTool extends JavaPlugin {
         if (command != null) {
             command.setExecutor(commandExecutor);
             command.setTabCompleter(tabCompleter);
+            registerCommands();
             getLogger().info("TamaTool enabled.");
         } else {
             getLogger().info("Initialization failed.");
@@ -47,5 +42,24 @@ public class TamaTool extends JavaPlugin {
     @Override
     public void onDisable() {
         getLogger().info("TamaTool disabled.");
+    }
+
+    private void registerCommands() {
+        commandManager.registerCommand(new VersionCommand(this));
+    }
+
+    @Inject
+    private void setCommandExecutor(CommandExecutor commandExecutor) {
+        this.commandExecutor = commandExecutor;
+    }
+
+    @Inject
+    private void setTabCompleter(TabCompleter tabCompleter) {
+        this.tabCompleter = tabCompleter;
+    }
+
+    @Inject
+    private void setCommandManager(CommandManager commandManager) {
+        this.commandManager = commandManager;
     }
 }

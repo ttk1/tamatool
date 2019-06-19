@@ -4,8 +4,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import net.ttk1.tamatool.command.TamaToolCommandExecutor;
-import net.ttk1.tamatool.command.TamaToolTabCompleter;
+import net.ttk1.tamatool.command.CommandExecutorImpl;
+import net.ttk1.tamatool.command.TabCompleterImpl;
 
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
@@ -25,7 +25,7 @@ public class PluginModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(TamaTool.class).toInstance(plugin);
-        bind(CommandExecutor.class).to(TamaToolCommandExecutor.class);
-        bind(TabCompleter.class).to(TamaToolTabCompleter.class);
+        bind(CommandExecutor.class).to(CommandExecutorImpl.class);
+        bind(TabCompleter.class).to(TabCompleterImpl.class);
     }
 }

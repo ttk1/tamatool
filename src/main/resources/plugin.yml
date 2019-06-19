@@ -1,14 +1,15 @@
-name: ${name}
-version: ${version}
-main: net.ttk1.tamatool.TamaTool
-author: tama@ttk1
-website: https://github.com/ttk1/tamatool
+name: ${plugin.name}
+version: ${plugin.version}
+main: ${plugin.main}
+description: ${plugin.description}
+author: ${plguin.author}
+website: ${plugin.website}
 
 commands:
   tamatool:
-    description: Development support tool.
+    description: ${plugin.description}
     usage: /tamatool <subcommand>
-    aliases: tt
+    aliases: [tt, tama]
 
 permissions:
   tamatool.version:

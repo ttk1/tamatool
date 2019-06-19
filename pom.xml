@@ -12,6 +12,13 @@
         <java.version>12</java.version>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.source>${java.version}</maven.compiler.source>
+        <!--SpigotPlugin properties-->
+        <plugin.name>${project.name}</plugin.name>
+        <plugin.version>${version}</plugin.version>
+        <plugin.main>net.ttk1.tamatool.TamaTool</plugin.main>
+        <plugin.description>${project.description}</plugin.description>
+        <plguin.author>tama@ttk1</plguin.author>
+        <plugin.website>https://github.com/ttk1/tamatool</plugin.website>
     </properties>
     <repositories>
         <repository>
