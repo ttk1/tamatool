@@ -1,20 +1,30 @@
 package net.ttk1.tamatool.commands;
 
+
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.command.CommandSender;
 
-import net.ttk1.tamatool.command.SubCommand;
+import net.ttk1.tamatool.command.AbstractCommand;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class VersionCommand implements SubCommand {
-    private final String NAME = "version";
-    private final String PERMISSION = "tamatool.version";
+public class Version extends AbstractCommand {
     private final String version;
 
-    public VersionCommand(JavaPlugin plugin) {
+    public Version(JavaPlugin plugin) {
+        super("version", "tamatool.version");
         this.version = plugin.getDescription().getVersion();
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
+    }
+
+    @Override
+    public String help() {
+        return "Nothing to display.";
     }
 
     @Override
@@ -29,18 +39,5 @@ public class VersionCommand implements SubCommand {
         } else {
             sender.sendMessage("You don't hove permission to perform this command.");
         }
-    }
-
-    @Override
-    public Set<String> tabComplete(CommandSender sender, String[] args) {
-        HashSet<String> candidates = new HashSet<>();
-        if (sender.hasPermission(PERMISSION)) {
-            if (args.length == 0) {
-                candidates.add(NAME);
-            } else if (args.length == 1 && NAME.startsWith(args[0])) {
-                candidates.add(NAME);
-            }
-        }
-        return candidates;
     }
 }

@@ -14,3 +14,5 @@ commands:
 permissions:
   tamatool.version:
     default: op
+  tamatool.blockinfo:
+    default: op

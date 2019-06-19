@@ -3,7 +3,6 @@ package net.ttk1.tamatool;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
-import net.ttk1.tamatool.commands.VersionCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import org.bukkit.command.CommandExecutor;
@@ -11,6 +10,7 @@ import org.bukkit.command.PluginCommand;
 import org.bukkit.command.TabCompleter;
 
 import net.ttk1.tamatool.command.CommandManager;
+import net.ttk1.tamatool.commands.*;
 
 public class TamaTool extends JavaPlugin {
     private CommandExecutor commandExecutor;
@@ -45,7 +45,8 @@ public class TamaTool extends JavaPlugin {
     }
 
     private void registerCommands() {
-        commandManager.registerCommand(new VersionCommand(this));
+        commandManager.registerCommand(new Version(this));
+        commandManager.registerCommand(new BlockInfo(this));
     }
 
     @Inject
