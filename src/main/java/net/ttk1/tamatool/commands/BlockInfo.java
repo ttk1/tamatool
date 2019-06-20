@@ -4,7 +4,6 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.ChatColor;
 
 import net.ttk1.tamatool.command.AbstractCommand;
 
