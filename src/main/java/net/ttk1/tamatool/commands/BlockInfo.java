@@ -47,7 +47,7 @@ public class BlockInfo extends AbstractCommand {
                 World world = plugin.getServer().getWorld(world_name);
                 if (world != null) {
                     Block block = world.getBlockAt(x, y, z);
-                    sender.sendMessage(block.toString());
+                    sender.sendMessage(block.getBlockData().toString());
                 } else {
                     sender.sendMessage("The world does not exist.");
                 }
