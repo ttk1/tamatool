@@ -4,6 +4,7 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.ChatColor;
 
 import net.ttk1.tamatool.command.AbstractCommand;
 
@@ -26,7 +27,7 @@ public class BlockInfo extends AbstractCommand {
 
     @Override
     public String help() {
-        return "usage: /tamatool blockinfo world_name x y z";
+        return "usage: /tamatool blockinfo <world_name> <x> <y> <z>";
     }
 
     @Override

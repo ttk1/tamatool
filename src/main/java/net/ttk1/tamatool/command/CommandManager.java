@@ -7,17 +7,17 @@ import java.util.HashMap;
 
 @Singleton
 public class CommandManager {
-    private Map<String, SubCommand> subCommands;
+    private Map<String, Command> commands;
 
     CommandManager() {
-        subCommands = new HashMap<>();
+        commands = new HashMap<>();
     }
 
-    public void registerCommand(SubCommand subCommand) {
-        subCommands.put(subCommand.getName(), subCommand);
+    public void registerCommand(Command command) {
+        commands.put(command.getName(), command);
     }
 
-    Map<String, SubCommand> getCommands() {
-        return subCommands;
+    Map<String, Command> getCommands() {
+        return commands;
     }
 }

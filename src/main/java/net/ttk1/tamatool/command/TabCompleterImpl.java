@@ -2,7 +2,6 @@ package net.ttk1.tamatool.command;
 
 import com.google.inject.Inject;
 
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 
@@ -15,10 +14,10 @@ public class TabCompleterImpl implements TabCompleter {
     private CommandManager commandManager;
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> onTabComplete(CommandSender sender, org.bukkit.command.Command bukkitCommand, String alias, String[] args) {
         Set<String> candidates = new HashSet<>();
-        for (SubCommand subCommand: commandManager.getCommands().values()) {
-            candidates.addAll(subCommand.tabComplete(sender, args));
+        for (Command command: commandManager.getCommands().values()) {
+            candidates.addAll(command.tabComplete(sender, args));
         }
         return new ArrayList<>(candidates);
     }

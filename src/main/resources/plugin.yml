@@ -8,7 +8,7 @@ website: ${plugin.website}
 commands:
   tamatool:
     description: ${plugin.description}
-    usage: /tamatool <subcommand>
+    usage: /tamatool <command> [OPTION]...
     aliases: [tt, tama]
 
 permissions:

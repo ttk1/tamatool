@@ -4,7 +4,7 @@ import org.bukkit.command.CommandSender;
 
 import java.util.Set;
 
-public interface SubCommand {
+public interface Command {
     String getName();
     String help();
     boolean match(String[] args);

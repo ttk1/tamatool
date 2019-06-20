@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 import java.util.HashSet;
 import java.util.Set;
 
-abstract public class AbstractCommand implements SubCommand {
+abstract public class AbstractCommand implements Command {
     protected final String NAME;
     protected final String PERMISSION;
 
